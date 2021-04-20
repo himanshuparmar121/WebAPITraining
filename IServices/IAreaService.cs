@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using WebAPITraining.Models;
 
 namespace WebAPITraining.IServices
 {

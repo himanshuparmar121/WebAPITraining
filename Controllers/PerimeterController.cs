@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebAPITraining.IServices;
 
 namespace WebAPITraining.Controllers
 {
@@ -11,12 +12,17 @@ namespace WebAPITraining.Controllers
     [ApiController]
     public class PerimeterController : ControllerBase
     {
+        private readonly IPerimeterServices _permimeterServices;
+        public PerimeterController(IPerimeterServices perimeterServices) {
+            _permimeterServices = perimeterServices;
+        }
+
         // To calculate Square's Perimeter
         [HttpGet]
         [Route("{side}")]
         public int Get(int side) 
         {
-            return 4*side;
+            return _permimeterServices.Perimeter(side);
         }
 
         // To calculate Rectangle's Perimeter
@@ -24,7 +30,7 @@ namespace WebAPITraining.Controllers
         [Route("{length}/{breath}")]
         public int Get(int length, int breath)
         {
-            return 2*(length+breath);
+            return _permimeterServices.Perimeter(length,breath);
         }
     }
 }
