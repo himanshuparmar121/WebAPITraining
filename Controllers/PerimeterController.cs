@@ -11,17 +11,19 @@ namespace WebAPITraining.Controllers
     [ApiController]
     public class PerimeterController : ControllerBase
     {
-        // To calculate Square Perimeter
+        // To calculate Square's Perimeter
         [HttpGet]
         [Route("{side}")]
-        public int Get(int side) {
+        public int Get(int side) 
+        {
             return 4*side;
         }
 
-        // To calculate Rectangle Perimeter
+        // To calculate Rectangle's Perimeter
         [HttpGet]
         [Route("{length}/{breath}")]
-        public int Get(int length, int breath) {
+        public int Get(int length, int breath)
+        {
             return 2*(length+breath);
         }
     }
